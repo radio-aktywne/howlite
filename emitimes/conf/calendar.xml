@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<create xmlns="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav"
+        xmlns:I="http://apple.com/ns/ical/">
+    <set>
+        <prop>
+            <resourcetype>
+                <collection/>
+                <C:calendar/>
+            </resourcetype>
+            <C:supported-calendar-component-set>
+                <C:comp name="VEVENT"/>
+            </C:supported-calendar-component-set>
+            <displayname>emitimes</displayname>
+            <C:calendar-description>emission times 🕒</C:calendar-description>
+            <I:calendar-color>#6aba9cff</I:calendar-color>
+        </prop>
+    </set>
+</create>
