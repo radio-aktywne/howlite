@@ -25,5 +25,7 @@ ENV EMITIMES_PORT=36000 \
 
 EXPOSE 36000
 
+HEALTHCHECK --interval=10s --retries=3 CMD curl -sSf http://localhost:36000 || exit 1
+
 ENTRYPOINT ["./start.sh"]
 CMD []
