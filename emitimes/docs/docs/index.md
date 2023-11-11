@@ -1,5 +1,0 @@
-# emitimes
-
-emission times 🕒
-
-TODO

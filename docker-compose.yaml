@@ -1,0 +1,15 @@
+---
+services:
+  emitimes:
+    build: .
+    network_mode: host
+    environment:
+      - "EMITIMES_PORT=${EMITIMES_PORT:-36000}"
+      - "EMITIMES_USER=${EMITIMES_USER:-user}"
+      - "EMITIMES_PASSWORD=${EMITIMES_PASSWORD:-password}"
+      - "EMITIMES_CALENDAR=${EMITIMES_CALENDAR:-emitimes}"
+    volumes:
+      - data:/app/data
+
+volumes:
+  data: {}
