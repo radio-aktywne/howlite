@@ -1,31 +1,50 @@
-ARG RADICALE_IMAGE_TAG=3.1.5.1
+# Use generic base image with Nix installed
+FROM nixos/nix:2.18.1 AS env
 
-FROM tomsquest/docker-radicale:$RADICALE_IMAGE_TAG
+# Configure Nix
+RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
-# add bash, because it's not available by default on alpine
-# and apache2-utils for htpasswd
-RUN apk add --no-cache bash apache2-utils
+# Set working directory to something other than root
+WORKDIR /env/
 
-WORKDIR /app
+# Copy Nix files
+COPY flake.lock *.nix ./
 
-RUN mkdir -p ./data/
+# Copy env script
+COPY ./scripts/env.sh ./scripts/env.sh
 
-COPY ./emitimes/start.sh ./start.sh
-RUN chmod +x ./start.sh
+# Build runtime shell closure and activation script
+RUN \
+    # Mount cached store paths
+    --mount=type=cache,target=/nix-store-cache \
+    # Mount Nix evaluation cache
+    --mount=type=cache,target=/root/.cache/nix \
+    ./scripts/env.sh runtime ./build /nix-store-cache
 
-COPY ./emitimes/conf/ ./conf/
+# Ubuntu is probably the safest choice for a runtime container right now
+FROM ubuntu:23.10
 
-RUN addgroup --gid 1000 container && chmod -R g+rwxs . && chown -R :container .
-USER radicale:container
+# Use bash as default shell
+SHELL ["/bin/bash", "-c"]
 
-ENV EMITIMES_PORT=36000 \
-    EMITIMES_USER=user \
-    EMITIMES_PASSWORD=password \
-    EMITIMES_CALENDAR=emitimes
+# Copy runtime shell closure and activation script
+COPY --from=env /env/build/closure/ /nix/store/
+COPY --from=env /env/build/activate /env/activate
 
-EXPOSE 36000
+# Set working directory to something other than root
+WORKDIR /app/
 
-HEALTHCHECK --interval=10s --retries=3 CMD curl -sSf http://localhost:36000 || exit 1
+# Create app user
+RUN useradd --create-home app
 
-ENTRYPOINT ["./start.sh"]
+# Setup entrypoint for RUN commands
+COPY ./scripts/shell.sh ./scripts/shell.sh
+SHELL ["./scripts/shell.sh"]
+
+# Copy source
+COPY ./src/ ./src/
+
+# Setup main entrypoint
+COPY ./scripts/entrypoint.sh ./scripts/entrypoint.sh
+ENTRYPOINT ["./scripts/entrypoint.sh", "/app/src/start.sh"]
 CMD []

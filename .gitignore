@@ -1,7 +1,14 @@
-.env
+# Local development environment overrides
+/local.nix
 
-.DS_STORE
+#Task
+/.task
+/Taskfile.yaml
+/Taskfile.yml
 
-.idea/
+# Misc
+.DS_Store
+.todo
 
-emitimes/docs/site/
+# Data
+/data
