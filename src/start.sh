@@ -12,9 +12,9 @@ calendarurl="${baseurl}/${user}/${calendar}"
 retries=30
 interval=1
 
-datadir=data
+datadir=data/
 
-tmpdir=$(mktemp --directory --tmpdir=/tmp)
+tmpdir=$(mktemp --directory --tmpdir=/tmp/)
 tmpcalendar="${tmpdir}/calendar.xml"
 tmpconfig="${tmpdir}/config.cfg"
 
@@ -65,4 +65,4 @@ echo 'Setup complete!'
 wait
 
 # Cleanup
-rm -rf "${tmpdir}"
+rm --recursive --force "${tmpdir}"
