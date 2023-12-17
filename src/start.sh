@@ -14,7 +14,7 @@ interval=1
 
 datadir=data/
 
-tmpdir=$(mktemp --directory --tmpdir=/tmp/)
+tmpdir=$(mktemp --directory)
 tmpcalendar="${tmpdir}/calendar.xml"
 tmpconfig="${tmpdir}/config.cfg"
 
