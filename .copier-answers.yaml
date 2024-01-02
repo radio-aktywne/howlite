@@ -1,14 +1,14 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 0.5.1
-_src_path: gh:radio-aktywne/template-app-generic
+_commit: 0.1.0
+_src_path: gh:radio-aktywne/template-database-generic
 accountname: radio-aktywne
-appname: emitimes
+databasename: emitimes
 description: Emission times 🕒
 docs: true
-docsurl: https://radio-aktywne.github.io/app-emitimes
+docsurl: https://radio-aktywne.github.io/database-emitimes
 envprefix: EMITIMES
-imagename: apps/emitimes
+imagename: databases/emitimes
 registry: true
 releases: true
-reponame: app-emitimes
-repourl: https://github.com/radio-aktywne/app-emitimes
+reponame: database-emitimes
+repourl: https://github.com/radio-aktywne/database-emitimes

@@ -3,15 +3,15 @@ services:
     build:
       context: ./
       network: host
-    network_mode: host
     environment:
       - "EMITIMES_HOST=${EMITIMES_HOST:-0.0.0.0}"
       - "EMITIMES_PORT=${EMITIMES_PORT:-36000}"
       - "EMITIMES_USER=${EMITIMES_USER:-user}"
       - "EMITIMES_PASSWORD=${EMITIMES_PASSWORD:-password}"
       - "EMITIMES_CALENDAR=${EMITIMES_CALENDAR:-emitimes}"
+    network_mode: host
     volumes:
-      - data:/app/data/
+      - data:/database/data/
 
 volumes:
   data: {}

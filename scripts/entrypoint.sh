@@ -5,8 +5,8 @@
 . /env/activate
 
 # Set permissions
-chown -R app: /app/
+chown -R database: /database/
 
 # Run as non-root user
 # Use tini to handle signals
-exec su-exec app tini -- "$@"
+exec su-exec database tini -- "$@"

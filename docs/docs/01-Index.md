@@ -3,7 +3,7 @@ slug: /
 title: Index
 ---
 
-# emitimes app
+# emitimes database
 
 Emission times 🕒
 

@@ -32,10 +32,11 @@ COPY --from=env /env/build/closure/ /nix/store/
 COPY --from=env /env/build/activate /env/activate
 
 # Set working directory to something other than root
-WORKDIR /app/
+WORKDIR /database/
 
-# Create app user
-RUN useradd --create-home app
+# Create database user and data directory
+RUN useradd --create-home database && \
+    mkdir -p data/
 
 # Setup entrypoint for RUN commands
 COPY scripts/shell.sh scripts/shell.sh
