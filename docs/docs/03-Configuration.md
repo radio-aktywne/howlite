@@ -5,7 +5,7 @@ title: Configuration
 
 ## Environment variables
 
-You can configure the app at runtime using various environment variables:
+You can configure the database at runtime using various environment variables:
 
 - `EMITIMES_HOST` -
   host to bind to
