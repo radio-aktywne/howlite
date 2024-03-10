@@ -1,5 +1,5 @@
 # Use generic base image with Nix installed
-FROM nixos/nix:2.19.2 AS env
+FROM nixos/nix:2.20.5 AS env
 
 # Configure Nix
 RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
@@ -40,12 +40,15 @@ RUN useradd --create-home database && \
 
 # Setup entrypoint for RUN commands
 COPY scripts/shell.sh scripts/shell.sh
-SHELL ["./scripts/shell.sh"]
+SHELL ["/database/scripts/shell.sh"]
 
 # Copy source
 COPY src/ src/
 
 # Setup main entrypoint
 COPY scripts/entrypoint.sh scripts/entrypoint.sh
-ENTRYPOINT ["./scripts/entrypoint.sh", "./src/start.sh"]
+ENTRYPOINT ["/database/scripts/entrypoint.sh", "./src/start.sh"]
 CMD []
+
+# Setup ownership
+RUN chown -R database: /database/
