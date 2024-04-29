@@ -4,11 +4,11 @@ services:
       context: ./
       network: host
     environment:
-      - "EMITIMES_HOST=${EMITIMES_HOST:-0.0.0.0}"
-      - "EMITIMES_PORT=${EMITIMES_PORT:-36000}"
-      - "EMITIMES_USER=${EMITIMES_USER:-user}"
-      - "EMITIMES_PASSWORD=${EMITIMES_PASSWORD:-password}"
-      - "EMITIMES_CALENDAR=${EMITIMES_CALENDAR:-emitimes}"
+      - "EMITIMES__SERVER__HOST=${EMITIMES__SERVER__HOST:-0.0.0.0}"
+      - "EMITIMES__SERVER__PORT=${EMITIMES__SERVER__PORT:-36000}"
+      - "EMITIMES__CREDENTIALS__USER=${EMITIMES__CREDENTIALS__USER:-user}"
+      - "EMITIMES__CREDENTIALS__PASSWORD=${EMITIMES__CREDENTIALS__PASSWORD:-password}"
+      - "EMITIMES__CALENDAR=${EMITIMES__CALENDAR:-emitimes}"
     network_mode: host
     volumes:
       - data:/database/data/
