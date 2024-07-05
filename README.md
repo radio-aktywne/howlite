@@ -2,7 +2,7 @@
 
 <div align="center">
 
-Emission times 🕒
+Emission times database 🕒
 
 [![Lint](https://github.com/radio-aktywne/database-datatimes/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/database-datatimes/actions/workflows/lint.yaml)
 [![Image](https://github.com/radio-aktywne/database-datatimes/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/database-datatimes/actions/workflows/image.yaml)

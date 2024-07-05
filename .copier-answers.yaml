@@ -3,7 +3,7 @@ _commit: 0.3.1
 _src_path: gh:radio-aktywne/template-database-generic
 accountname: radio-aktywne
 databasename: datatimes
-description: Emission times 🕒
+description: Emission times database 🕒
 docs: true
 docsurl: https://radio-aktywne.github.io/database-datatimes
 envprefix: DATATIMES
