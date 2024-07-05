@@ -5,7 +5,7 @@ title: Index
 
 # datatimes database
 
-Emission times 🕒
+Emission times database 🕒
 
 ## 💡 About
 

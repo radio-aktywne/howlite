@@ -3,7 +3,9 @@
   <D:set>
     <D:prop>
       <D:displayname>datatimes</D:displayname>
-      <C:calendar-description>Emission times 🕒</C:calendar-description>
+      <C:calendar-description>
+        Emission times database 🕒
+      </C:calendar-description>
       <C:supported-calendar-component-set>
         <C:comp name="VEVENT" />
       </C:supported-calendar-component-set>
