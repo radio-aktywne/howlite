@@ -2,7 +2,7 @@
 <D:propertyupdate xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav">
   <D:set>
     <D:prop>
-      <D:displayname>emitimes</D:displayname>
+      <D:displayname>datatimes</D:displayname>
       <C:calendar-description>Emission times 🕒</C:calendar-description>
       <C:supported-calendar-component-set>
         <C:comp name="VEVENT" />

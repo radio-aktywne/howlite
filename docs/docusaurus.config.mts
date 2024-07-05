@@ -2,10 +2,10 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
 
-const url = new URL("https://radio-aktywne.github.io/database-emitimes");
+const url = new URL("https://radio-aktywne.github.io/database-datatimes");
 
 const config: Config = {
-  title: "emitimes database docs",
+  title: "datatimes database docs",
   favicon: "favicon.svg?v=1",
 
   url: `${url.protocol}//${url.host}`,
@@ -41,14 +41,14 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: "emitimes database docs",
+      title: "datatimes database docs",
       logo: {
-        alt: "emitimes database docs logo",
+        alt: "datatimes database docs logo",
         src: "logo.svg?v=1",
       },
       items: [
         {
-          href: "https://github.com/radio-aktywne/database-emitimes",
+          href: "https://github.com/radio-aktywne/database-datatimes",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",

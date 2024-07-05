@@ -12,7 +12,7 @@ For example, you can use [`curl`](https://curl.se) to download the calendar data
 ```sh
 curl \
     -u user:password \
-    http://localhost:36000/user/emitimes
+    http://localhost:36000/user/datatimes
 ```
 
 ## CalDAV
@@ -36,7 +36,7 @@ DTEND:20121213T000000Z
 SUMMARY:The End of the World
 END:VEVENT
 END:VCALENDAR' \
-    http://localhost:36000/user/emitimes
+    http://localhost:36000/user/datatimes
 ```
 
 ## Web UI

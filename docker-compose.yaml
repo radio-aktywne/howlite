@@ -1,14 +1,14 @@
 services:
-  emitimes:
+  datatimes:
     build:
       context: ./
       network: host
     environment:
-      - "EMITIMES__SERVER__HOST=${EMITIMES__SERVER__HOST:-0.0.0.0}"
-      - "EMITIMES__SERVER__PORT=${EMITIMES__SERVER__PORT:-36000}"
-      - "EMITIMES__CREDENTIALS__USER=${EMITIMES__CREDENTIALS__USER:-user}"
-      - "EMITIMES__CREDENTIALS__PASSWORD=${EMITIMES__CREDENTIALS__PASSWORD:-password}"
-      - "EMITIMES__CALENDAR=${EMITIMES__CALENDAR:-emitimes}"
+      - "DATATIMES__SERVER__HOST=${DATATIMES__SERVER__HOST:-0.0.0.0}"
+      - "DATATIMES__SERVER__PORT=${DATATIMES__SERVER__PORT:-36000}"
+      - "DATATIMES__CREDENTIALS__USER=${DATATIMES__CREDENTIALS__USER:-user}"
+      - "DATATIMES__CREDENTIALS__PASSWORD=${DATATIMES__CREDENTIALS__PASSWORD:-password}"
+      - "DATATIMES__CALENDAR=${DATATIMES__CALENDAR:-datatimes}"
     network_mode: host
     volumes:
       - data:/database/data/
