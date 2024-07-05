@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Configuration
-port="${EMITIMES__SERVER__PORT:-36000}"
-user="${EMITIMES__CREDENTIALS__USER:-user}"
-password="${EMITIMES__CREDENTIALS__PASSWORD:-password}"
-calendar=${EMITIMES__CALENDAR:-emitimes}
+port="${DATATIMES__SERVER__PORT:-36000}"
+user="${DATATIMES__CREDENTIALS__USER:-user}"
+password="${DATATIMES__CREDENTIALS__PASSWORD:-password}"
+calendar=${DATATIMES__CALENDAR:-datatimes}
 
 baseurl="http://localhost:${port}"
 calendarurl="${baseurl}/${user}/${calendar}"
