@@ -1,14 +1,14 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 0.3.1
+_commit: 0.4.0
 _src_path: gh:radio-aktywne/template-database-generic
 accountname: radio-aktywne
 databasename: datatimes
-description: Emission times database 🕒
+description: Broadcast times data 🎭
 docs: true
-docsurl: https://radio-aktywne.github.io/database-datatimes
+docsurl: https://radio-aktywne.github.io/datatimes
 envprefix: DATATIMES
 imagename: databases/datatimes
 registry: true
 releases: true
-reponame: database-datatimes
-repourl: https://github.com/radio-aktywne/database-datatimes
+reponame: datatimes
+repourl: https://github.com/radio-aktywne/datatimes
