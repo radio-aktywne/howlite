@@ -3,11 +3,11 @@ slug: /
 title: Index
 ---
 
-# datatimes
+# howlite
 
 Broadcast times data 🎭
 
 ## 💡 About
 
-`datatimes` is a [`Radicale`](https://radicale.org) server
+`howlite` is a [`Radicale`](https://radicale.org) server
 that stores a calendar with broadcast times of shows.

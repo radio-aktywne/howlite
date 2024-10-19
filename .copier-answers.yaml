@@ -2,13 +2,13 @@
 _commit: 0.4.0
 _src_path: gh:radio-aktywne/template-database-generic
 accountname: radio-aktywne
-databasename: datatimes
+databasename: howlite
 description: Broadcast times data 🎭
 docs: true
-docsurl: https://radio-aktywne.github.io/datatimes
-envprefix: DATATIMES
-imagename: databases/datatimes
+docsurl: https://radio-aktywne.github.io/howlite
+envprefix: HOWLITE
+imagename: databases/howlite
 registry: true
 releases: true
-reponame: datatimes
-repourl: https://github.com/radio-aktywne/datatimes
+reponame: howlite
+repourl: https://github.com/radio-aktywne/howlite

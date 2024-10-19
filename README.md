@@ -1,13 +1,13 @@
-<h1 align="center">datatimes</h1>
+<h1 align="center">howlite</h1>
 
 <div align="center">
 
 Broadcast times data 🎭
 
-[![Lint](https://github.com/radio-aktywne/datatimes/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/datatimes/actions/workflows/lint.yaml)
-[![Image](https://github.com/radio-aktywne/datatimes/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/datatimes/actions/workflows/image.yaml)
-[![Registry](https://github.com/radio-aktywne/datatimes/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/datatimes/actions/workflows/registry.yaml)
-[![Docs](https://github.com/radio-aktywne/datatimes/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/datatimes/actions/workflows/docs.yaml)
+[![Lint](https://github.com/radio-aktywne/howlite/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/howlite/actions/workflows/lint.yaml)
+[![Image](https://github.com/radio-aktywne/howlite/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/howlite/actions/workflows/image.yaml)
+[![Registry](https://github.com/radio-aktywne/howlite/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/howlite/actions/workflows/registry.yaml)
+[![Docs](https://github.com/radio-aktywne/howlite/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/howlite/actions/workflows/docs.yaml)
 
 </div>
 
@@ -15,15 +15,15 @@ Broadcast times data 🎭
 
 ## 💡 About
 
-`datatimes` is a [`Radicale`](https://radicale.org) server
+`howlite` is a [`Radicale`](https://radicale.org) server
 that stores a calendar with broadcast times of shows.
 
 ## 📄 Further Reading
 
 More in-depth documentation can be found
-[here](https://radio-aktywne.github.io/datatimes).
+[here](https://radio-aktywne.github.io/howlite).
 
 ## 💻 Development
 
 Read more about how to develop the project
-[here](https://github.com/radio-aktywne/datatimes/blob/main/CONTRIBUTING.md).
+[here](https://github.com/radio-aktywne/howlite/blob/main/CONTRIBUTING.md).

@@ -1,14 +1,14 @@
 services:
-  datatimes:
+  howlite:
     build:
       context: ./
       network: host
     environment:
-      - "DATATIMES__SERVER__HOST=${DATATIMES__SERVER__HOST:-0.0.0.0}"
-      - "DATATIMES__SERVER__PORT=${DATATIMES__SERVER__PORT:-36000}"
-      - "DATATIMES__CREDENTIALS__USER=${DATATIMES__CREDENTIALS__USER:-user}"
-      - "DATATIMES__CREDENTIALS__PASSWORD=${DATATIMES__CREDENTIALS__PASSWORD:-password}"
-      - "DATATIMES__CALENDAR=${DATATIMES__CALENDAR:-datatimes}"
+      - "HOWLITE__SERVER__HOST=${HOWLITE__SERVER__HOST:-0.0.0.0}"
+      - "HOWLITE__SERVER__PORT=${HOWLITE__SERVER__PORT:-36000}"
+      - "HOWLITE__CREDENTIALS__USER=${HOWLITE__CREDENTIALS__USER:-user}"
+      - "HOWLITE__CREDENTIALS__PASSWORD=${HOWLITE__CREDENTIALS__PASSWORD:-password}"
+      - "HOWLITE__CALENDAR=${HOWLITE__CALENDAR:-calendar}"
     network_mode: host
     volumes:
       - data:/database/data/
