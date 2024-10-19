@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Configuration
-port="${DATATIMES__SERVER__PORT:-36000}"
-user="${DATATIMES__CREDENTIALS__USER:-user}"
-password="${DATATIMES__CREDENTIALS__PASSWORD:-password}"
-calendar=${DATATIMES__CALENDAR:-datatimes}
+port="${HOWLITE__SERVER__PORT:-36000}"
+user="${HOWLITE__CREDENTIALS__USER:-user}"
+password="${HOWLITE__CREDENTIALS__PASSWORD:-password}"
+calendar=${HOWLITE__CALENDAR:-calendar}
 
 baseurl="http://localhost:${port}"
 calendarurl="${baseurl}/${user}/${calendar}"

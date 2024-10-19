@@ -7,18 +7,18 @@ title: Configuration
 
 You can configure the database at runtime using various environment variables:
 
-- `DATATIMES__SERVER__HOST` -
+- `HOWLITE__SERVER__HOST` -
   host to bind to
   (default: `0.0.0.0`)
-- `DATATIMES__SERVER__PORT` -
+- `HOWLITE__SERVER__PORT` -
   port to bind to
   (default: `36000`)
-- `DATATIMES__CREDENTIALS__USER` -
+- `HOWLITE__CREDENTIALS__USER` -
   username of the main user
   (default: `user`)
-- `DATATIMES__CREDENTIALS__PASSWORD` -
+- `HOWLITE__CREDENTIALS__PASSWORD` -
   password of the main user
   (default: `password`)
-- `DATATIMES__CALENDAR` -
+- `HOWLITE__CALENDAR` -
   identifier of the calendar
-  (default: `datatimes`)
+  (default: `calendar`)

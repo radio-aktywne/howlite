@@ -2,10 +2,10 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
 
-const url = new URL("https://radio-aktywne.github.io/datatimes");
+const url = new URL("https://radio-aktywne.github.io/howlite");
 
 const config: Config = {
-  title: "datatimes docs",
+  title: "howlite docs",
   favicon: "favicon.svg?v=1",
 
   url: `${url.protocol}//${url.host}`,
@@ -41,14 +41,14 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: "datatimes docs",
+      title: "howlite docs",
       logo: {
-        alt: "datatimes docs logo",
+        alt: "howlite docs logo",
         src: "logo.svg?v=1",
       },
       items: [
         {
-          href: "https://github.com/radio-aktywne/datatimes",
+          href: "https://github.com/radio-aktywne/howlite",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",
