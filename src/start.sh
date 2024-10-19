@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Configuration
-port="${HOWLITE__SERVER__PORT:-36000}"
+port="${HOWLITE__SERVER__PORT:-10520}"
 user="${HOWLITE__CREDENTIALS__USER:-user}"
 password="${HOWLITE__CREDENTIALS__PASSWORD:-password}"
 calendar=${HOWLITE__CALENDAR:-calendar}

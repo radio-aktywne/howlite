@@ -12,7 +12,7 @@ For example, you can use [`curl`](https://curl.se) to download the calendar data
 ```sh
 curl \
     -u user:password \
-    http://localhost:36000/user/calendar
+    http://localhost:10520/user/calendar
 ```
 
 ## CalDAV
@@ -36,11 +36,11 @@ DTEND:20121213T000000Z
 SUMMARY:The End of the World
 END:VEVENT
 END:VCALENDAR' \
-    http://localhost:36000/user/calendar
+    http://localhost:10520/user/calendar
 ```
 
 ## Web UI
 
 You can use the web UI to perform basic operations on the calendar.
 It is available at the root of the server,
-for example at [`http://localhost:36000`](http://localhost:36000).
+for example at [`http://localhost:10520`](http://localhost:10520).

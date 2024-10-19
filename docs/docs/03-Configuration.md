@@ -12,7 +12,7 @@ You can configure the database at runtime using various environment variables:
   (default: `0.0.0.0`)
 - `HOWLITE__SERVER__PORT` -
   port to bind to
-  (default: `36000`)
+  (default: `10520`)
 - `HOWLITE__CREDENTIALS__USER` -
   username of the main user
   (default: `user`)
