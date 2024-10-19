@@ -3,11 +3,11 @@ slug: /
 title: Index
 ---
 
-# datatimes database
+# datatimes
 
-Emission times database 🕒
+Broadcast times data 🎭
 
 ## 💡 About
 
 `datatimes` is a [`Radicale`](https://radicale.org) server
-that stores a calendar with emission times of shows.
+that stores a calendar with broadcast times of shows.
