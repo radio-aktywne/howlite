@@ -2,7 +2,7 @@
 
 <div align="center">
 
-Broadcast times data 🎭
+Broadcast times database 🎭
 
 [![Lint](https://github.com/radio-aktywne/howlite/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/howlite/actions/workflows/lint.yaml)
 [![Image](https://github.com/radio-aktywne/howlite/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/howlite/actions/workflows/image.yaml)
@@ -15,8 +15,8 @@ Broadcast times data 🎭
 
 ## 💡 About
 
-`howlite` is a [`Radicale`](https://radicale.org) server
-that stores a calendar with broadcast times of shows.
+`howlite` is a [`Radicale`](https://radicale.org) database
+that stores broadcast times of shows.
 
 ## 📄 Further Reading
 

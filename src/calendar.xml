@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav">
+<D:propertyupdate
+  xmlns:D="DAV:"
+  xmlns:C="urn:ietf:params:xml:ns:caldav"
+  xmlns:I="http://apple.com/ns/ical/"
+>
   <D:set>
     <D:prop>
       <D:displayname>howlite</D:displayname>
-      <C:calendar-description>Broadcast times data 🎭</C:calendar-description>
+      <C:calendar-description>Broadcast times 🎭</C:calendar-description>
       <C:supported-calendar-component-set>
         <C:comp name="VEVENT" />
       </C:supported-calendar-component-set>
+      <I:calendar-color>#6aba9c</I:calendar-color>
     </D:prop>
   </D:set>
 </D:propertyupdate>

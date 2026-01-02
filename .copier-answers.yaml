@@ -1,9 +1,9 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 0.5.0
+_commit: 0.6.0
 _src_path: gh:radio-aktywne/template-database-generic
 accountname: radio-aktywne
 databasename: howlite
-description: Broadcast times data 🎭
+description: Broadcast times database 🎭
 docs: true
 docsurl: https://radio-aktywne.github.io/howlite
 envprefix: HOWLITE
