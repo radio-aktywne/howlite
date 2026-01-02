@@ -4,11 +4,11 @@ services:
       context: ./
       network: host
     environment:
+      - "HOWLITE__CALENDAR=${HOWLITE__CALENDAR:-calendar}"
+      - "HOWLITE__CREDENTIALS__PASSWORD=${HOWLITE__CREDENTIALS__PASSWORD:-password}"
+      - "HOWLITE__CREDENTIALS__USER=${HOWLITE__CREDENTIALS__USER:-user}"
       - "HOWLITE__SERVER__HOST=${HOWLITE__SERVER__HOST:-0.0.0.0}"
       - "HOWLITE__SERVER__PORT=${HOWLITE__SERVER__PORT:-10520}"
-      - "HOWLITE__CREDENTIALS__USER=${HOWLITE__CREDENTIALS__USER:-user}"
-      - "HOWLITE__CREDENTIALS__PASSWORD=${HOWLITE__CREDENTIALS__PASSWORD:-password}"
-      - "HOWLITE__CALENDAR=${HOWLITE__CALENDAR:-calendar}"
     network_mode: host
     volumes:
       - data:/database/data/

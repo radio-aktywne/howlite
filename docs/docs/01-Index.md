@@ -5,9 +5,9 @@ title: Index
 
 # howlite
 
-Broadcast times data 🎭
+Broadcast times database 🎭
 
 ## 💡 About
 
-`howlite` is a [`Radicale`](https://radicale.org) server
-that stores a calendar with broadcast times of shows.
+`howlite` is a [`Radicale`](https://radicale.org) database
+that stores broadcast times of shows.

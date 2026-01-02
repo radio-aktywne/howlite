@@ -1,5 +1,5 @@
 [server]
-hosts = ${HOWLITE__SERVER__HOST:-0.0.0.0}:${HOWLITE__SERVER__PORT:-10520}
+hosts = {{ ( ds "config" ).server.host }}:{{ ( ds "config" ).server.port }}
 
 [auth]
 type = htpasswd

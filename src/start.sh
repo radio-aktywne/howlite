@@ -1,68 +1,143 @@
 #!/bin/sh
 
-# Configuration
-port="${HOWLITE__SERVER__PORT:-10520}"
-user="${HOWLITE__CREDENTIALS__USER:-user}"
-password="${HOWLITE__CREDENTIALS__PASSWORD:-password}"
-calendar=${HOWLITE__CALENDAR:-calendar}
-
-baseurl="http://localhost:${port}"
-calendarurl="${baseurl}/${user}/${calendar}"
-
-retries=30
-interval=1
+### Constants
 
 datadir=data/
 
-tmpdir=$(mktemp --directory)
-tmpcalendar="${tmpdir}/calendar.xml"
-tmpconfig="${tmpdir}/config.cfg"
+### Temporary files
 
-# Make sure the data directory exists
-mkdir --parents "${datadir}"
+tmpconfig="$(mktemp --suffix=.yaml)"
+tmpradicaleconfig="$(mktemp --suffix=.cfg)"
 
-# Replace environment variables in config files and save to temporary directory
-envsubst <src/cfg/calendar.xml >"${tmpcalendar}"
-envsubst <src/cfg/config.cfg >"${tmpconfig}"
+### Functions
 
-# Create htpasswd file
-echo "${password}" | htpasswd -ic "${datadir}/.htpasswd" "${user}"
+# Cleanup function to remove temporary files
+cleanup() {
+	rm --force "${tmpconfig}" "${tmpradicaleconfig}"
+}
 
-# Start Radicale with the provided config in the background
-radicale --config "${tmpconfig}" &
+# Function to fill values in the configuration file
+fillconfig() {
+	gomplate --file src/config.yaml.tpl --out "${1}"
+}
 
-echo 'Setting up...'
+# Function to fill values in the Radicale configuration file
+fillradicaleconfig() {
+	gomplate --file src/radicale.cfg.tpl --datasource config="${1}" --out "${2}"
+}
 
-# Wait for Radicale to start up using curl
-for i in $(seq 1 "${retries}"); do
-	if [ "${i}" -eq "${retries}" ]; then
-		echo 'Could not connect to Radicale!'
-		exit 1
+# Function to setup ignoring signals
+ignoresignals() {
+	for signal in INT TERM HUP QUIT; do
+		trap '' "${signal}"
+	done
+}
+
+# Function to make preparations before starting Radicale
+prepare() {
+	password="$(yq eval '.credentials.password' "${1}")"
+	user="$(yq eval '.credentials.user' "${1}")"
+
+	# Ensure data directory exists
+	mkdir --parents "${datadir}"
+
+	# Create htpasswd file
+	echo "${password}" | htpasswd -ic "${datadir}/.htpasswd" "${user}"
+}
+
+# Function to start Radicale
+startradicale() {
+	echo 'Starting Radicale...'
+
+	radicale --config "${1}" &
+}
+
+# Function to setup signal handling
+handlesignals() {
+	for signal in INT TERM HUP QUIT; do
+		trap 'kill -'"${signal}"' '"${1}"'; wait '"${1}"'; status=$?; cleanup; exit "${status}"' "${signal}"
+	done
+}
+
+# Function to wait until Radicale is ready
+waituntilready() {
+	retries=30
+	interval=1
+	url="http://localhost:$(yq eval '.server.port' "${1}")"
+
+	for i in $(seq 1 "${retries}"); do
+		if [ "${i}" -eq "${retries}" ]; then
+			echo 'Could not connect to Radicale!'
+			exit 1
+		fi
+
+		if curl --silent --head --fail "${url}" >/dev/null; then
+			echo 'Connected to Radicale!'
+			break
+		else
+			echo 'Waiting for connection to Radicale...'
+			sleep "${interval}"
+		fi
+	done
+}
+
+# Function to setup Radicale
+setup() {
+	calendar="$(yq eval '.calendar' "${1}")"
+	password="$(yq eval '.credentials.password' "${1}")"
+	user="$(yq eval '.credentials.user' "${1}")"
+	url="http://localhost:$(yq eval '.server.port' "${1}")"
+
+	echo 'Running setup...'
+
+	# Create calendar if it doesn't exist
+	if ! PASSWORD="${password}" curl --variable '%PASSWORD' --silent --fail --head --expand-user "${user}:{{PASSWORD}}" "${url}/${user}/${calendar}" >/dev/null; then
+		echo 'Creating calendar...'
+		PASSWORD="${password}" curl --variable '%PASSWORD' --silent --request MKCALENDAR --expand-user "${user}:{{PASSWORD}}" "${url}/${user}/${calendar}" >/dev/null
 	fi
 
-	if curl --silent --head --fail "${baseurl}" >/dev/null; then
-		echo 'Connected to Radicale!'
-		break
-	else
-		echo 'Waiting for connection to Radicale...'
-		sleep "${interval}"
-	fi
-done
+	# Update calendar metadata
+	echo 'Updating calendar metadata...'
+	PASSWORD="${password}" curl --variable '%PASSWORD' --silent --request PROPPATCH --expand-user "${user}:{{PASSWORD}}" --data '@src/calendar.xml' "${url}/${user}/${calendar}" >/dev/null
+}
 
-# Create calendar if it doesn't exist
-if ! curl --silent --fail --head --user "${user}:${password}" "${calendarurl}" >/dev/null; then
-	echo 'Creating calendar...'
-	curl --silent --request MKCALENDAR --user "${user}:${password}" "${calendarurl}" >/dev/null
-fi
+# Function to wait for Radicale to exit and handle cleanup
+waitandcleanup() {
+	wait "${1}"
+	status=$?
 
-# Update calendar metadata
-echo 'Updating calendar metadata...'
-curl --silent --request PROPPATCH --user "${user}:${password}" --data "@${tmpcalendar}" "${calendarurl}" >/dev/null
+	# Cleanup temporary files
+	cleanup
 
-echo 'Setup complete!'
+	exit "${status}"
+}
+
+### Main script execution
+
+# Fill values in configuration files
+fillconfig "${tmpconfig}"
+fillradicaleconfig "${tmpconfig}" "${tmpradicaleconfig}"
+
+# Make preparations
+prepare "${tmpconfig}"
+
+# Temporarily ignore signals
+ignoresignals
+
+# Start Radicale in the background
+startradicale "${tmpradicaleconfig}"
+
+# Setup signal handling
+pid=$!
+handlesignals "${pid}"
+
+# Wait for Radicale to start
+waituntilready "${tmpconfig}"
+
+# Run setup
+setup "${tmpconfig}"
+
+echo 'Radicale is ready!'
 
 # Wait for Radicale to exit
-wait
-
-# Cleanup
-rm --recursive --force "${tmpdir}"
+waitandcleanup "${pid}"
