@@ -101,6 +101,7 @@
             ];
 
             shellHook = ''
+              export TEMP=/tmp
               export TMPDIR=/tmp
             '';
           };
@@ -119,6 +120,7 @@
             ];
 
             shellHook = ''
+              export TEMP=/tmp
               export TMPDIR=/tmp
             '';
           };
